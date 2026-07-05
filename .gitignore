@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 /.lake
+=======
+# cache and other artifacts produced by Lean's Lake build tool
+.lake/
+>>>>>>> 2f90c28a75318519e110302726b32e7e0cb78b70
