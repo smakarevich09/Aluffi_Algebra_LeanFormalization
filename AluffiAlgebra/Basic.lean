@@ -124,7 +124,9 @@ theorem product_eq_unique_order_two {G: Type*}[CommGroup G][Fintype G]
 
   have decomposition_of_product : ∏ g : G,
     g = (∏ g ∈ S_1, g) * (∏ g ∈ S_2, g) * (∏ g ∈ S_3, g) := by
-    sorry
+    rw [Finset.prod_filter, Finset.prod_filter, Finset.prod_filter]
+    simpa only [← Finset.prod_mul_distrib] using Finset.prod_congr rfl fun x _ => by
+      by_cases hx1 : orderOf x = 1 <;> by_cases hx2 : orderOf x = 2 <;> simp +decide [hx1, hx2]
 
   rw [decomposition_of_product, prod_S_1, prod_S_2, prod_S_3]
   simp
